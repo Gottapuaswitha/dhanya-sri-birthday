@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff1f5">
+  <meta name="description" content="A birthday surprise made with love for Dhanya Sri.">
+  <title>For Dhanya Sri ♡</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <button class="music-btn" id="musicToggle" type="button" aria-label="Toggle background music">
+    ♫ Music: Off
+  </button>
+  <audio id="bgm" src="assets/music/Nammavemo-.mp3" loop preload="auto"></audio>
+
+  <main>
+    <!-- PAGE 1: Welcome screen -->
+    <section class="page active" id="page1" aria-label="Welcome">
+      <div class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">A little surprise made with love</p>
+          <h1>Happy Birthday,<br><span class="script">Dhanya Sri</span> ♡</h1>
+          <p class="hero-copy">
+            To our little bundle of happiness — today is all about your smile,
+            your dreams, and the love that surrounds you.
+          </p>
+
+          <form class="unlock-form" id="unlockForm">
+            <label for="secretName">Type your name to unlock your surprise ♡</label>
+            <input id="secretName" name="secretName" type="text" placeholder="Type Dhanya Sri..." autocomplete="off">
+            <p id="nameHint" class="name-hint" aria-live="polite"></p>
+            <button class="primary" type="submit">Open your surprise ♡ →</button>
+          </form>
+          <p class="hero-signoff">MADE WITH ALL OUR LOVE</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 2: Birthday wishes and Dhanya Sri's photo -->
+    <section class="page" id="page2" aria-label="Birthday wishes">
+      <div class="section-wrap">
+        <article class="birthday-intro">
+          <p class="intro-eyebrow">Today is all about you ✨</p>
+          <figure class="feature-photo-frame">
+            <!-- Put Dhanya Sri's photo in assets/photos/ with this exact filename. -->
+            <img
+              id="featurePhoto"
+              src="assets/photos/dhannamma.jpg"
+              alt="Dhanya Sri — birthday girl"
+            >
+          </figure>
+          <p class="photo-caption">Our favourite girl, our forever happiness ♡</p>
+
+          <p class="intro-eyebrow">A little extra love, just for you</p>
+          <h2>Our precious <span class="script">Chinni Thalli</span> 💗</h2>
+          <p class="intro-copy">
+            Your smile makes ordinary days feel special, and your presence makes
+            our family brighter. Today is all about celebrating YOU — the happiness
+            you bring, the memories we share, and all the beautiful things waiting for you.
+          </p>
+          <p class="birthday-greeting script">Happy Birthday, Dhanya Sri! 🎂</p>
+
+          <div class="love-pills" aria-label="Birthday wishes">
+            <span>♡ Endless hugs</span>
+            <span>✧ Family love</span>
+            <span>💕 Beautiful memories</span>
+          </div>
+          <nav class="page-footer" aria-label="Birthday page navigation">
+            <button class="secondary" type="button" data-go="1">← Back</button>
+            <button class="secondary" type="button" data-go="3">Meet your family →</button>
+          </nav>
+        </article>
+        
+      </div>
+    </section>
+
+    <!-- PAGE 3: Family cards -->
+    <section class="page" id="page3" aria-label="Family memories">
+      <div class="section-wrap">
+        <header class="section-head">
+          <p class="eyebrow">Your forever people</p>
+          <h2>Made of <span class="script">family & love</span></h2>
+        
+        </header>
+        <div class="family-grid" id="familyGrid"></div>
+        <nav class="page-footer" aria-label="Family page navigation">
+          <button class="secondary" type="button" data-go="2">← Birthday wishes</button>
+          <button class="secondary" type="button" data-go="4">Dhanya Sri's gallery →</button>
+        </nav>
+        <p class="tiny-note">Every memory is a little piece of home ♡</p>
+      </div>
+    </section>
+
+    <!-- PAGE 4: Polaroid-style photo gallery -->
+    <section class="page" id="page4" aria-label="Photo gallery">
+      <div class="section-wrap">
+        <header class="section-head">
+          <p class="eyebrow">Little moments, big love</p>
+          <h2>Dhanya Sri's <span class="script">Gallery</span> ✨</h2>
+          <p>A collection of smiles, silly moments, celebrations and memories we want to keep forever.</p>
+        </header>
+        <div class="gallery-grid" id="galleryGrid"></div>
+        <nav class="page-footer" aria-label="Gallery page navigation">
+          <button class="secondary" type="button" data-go="3">← Back to family</button>
+          <button class="secondary" type="button" data-go="5">A little letter for you ♡ →</button>
+        </nav>
+        <p class="tiny-note">Made with love, just for you · Happy Birthday dhani bangaram✨!</p>
+      </div>
+    </section>
+
+    <!-- PAGE 5: Birthday letter with Dhanya Sri's own video directly underneath. -->
+    <section class="page" id="page5" aria-label="Birthday letter and special video">
+      <div class="section-wrap letter-video-wrap">
+        <header class="section-head last-letter-head">
+          <p class="eyebrow">A little note, just for you</p>
+          <h2>Our precious <span class="script">Chinni Thalli</span> ♡</h2>
+          <p>Some people make a family brighter just by being in it. You are one of those beautiful gifts.</p>
+        </header>
+
+        <article class="wish-card">
+          <div class="big-heart" aria-hidden="true">♡</div>
+          <h3>Dear Dhanya Sri,</h3>
+          <p class="birthday-letter">
+            You are the most precious gift life has ever given us. 🥹❤️<br>
+            Your smile brings happiness, and your presence makes every moment beautiful. ✨<br>
+            You are not just a part of our family, you are a piece of all our hearts. 🫶<br>
+            May your life always be filled with love, laughter, and endless happiness. 🌸
+          </p>
+          <p class="birthday-signoff script">Happy Birthday Chinni Thalli! 🎂💕</p>
+          <p>We love you more than words can ever say. ♡</p>
+        </article>
+
+        <!-- Add your 30-second video at assets/videos/dhanya-sri.mp4 -->
+        <article class="video-letter-card final-video-card">
+          <div class="video-letter-heading">
+            <span>♡ A little surprise for you ♡</span>
+            <h3>Our little star, forever loved ✨</h3>
+            <p>A little video just for you, Dhanuu💗.</p>
+          </div>
+          <video class="birthday-video" controls playsinline preload="metadata" poster="assets/photos/video-poster.jpg">
+            <source src="assets/videos/dhanya.mp4" type="video/mp4">
+            Your browser does not support video playback.
+          </video>
+        </article>
+
+        <nav class="page-footer" aria-label="Birthday letter navigation">
+          <button class="secondary" type="button" data-go="4">← Back to gallery</button>
+          <button class="secondary" type="button" data-go="6">Amma, Nanna & You →</button>
+        </nav>
+        <p class="tiny-note">Made with endless love for dhanamma. ♡</p>
+      </div>
+    </section>
+
+    <section class="page" id="page6" aria-label="Amma, Nanna and Dhanya Sri family video">
+      <div class="section-wrap letter-video-wrap">
+        <header class="section-head">
+          <p class="eyebrow">Your forever little family ♡</p>
+          <h2>Amma, Nanna <span class="script">& You</span> 💗</h2>
+          <p>A special memory with the people who love you more than words can say.</p>
+        </header>
+
+        <article class="video-letter-card final-video-card">
+          <div class="video-letter-heading">
+            <span>♡ One family, endless love ♡</span>
+            <h3>Our favourite people, together ✨</h3>
+            <p>Amma + Nanna + dhanamma🫶.</p>
+          </div>
+          <video class="birthday-video" controls playsinline preload="metadata" poster="assets/photos/family-video-poster.jpg">
+            <source src="assets/videos/amma and nanna.mp4" type="video/mp4">
+            Your browser does not support video playback.
+          </video>
+         
+        </article>
+
+        <nav class="page-footer" aria-label="Family video navigation">
+          <button class="secondary" type="button" data-go="5">← Back to her letter & video</button>
+          <button class="secondary" type="button" data-go="1">Start again ♡</button>
+        </nav>
+        <p class="tiny-note">Always together, always loved. ♡</p>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal">
+      <div class="modal-top">
+        <h2 id="modalTitle">A special memory ♡</h2>
+        <button class="close" id="modalClose" type="button" aria-label="Close">×</button>
+      </div>
+      <div class="modal-media" id="modalMedia"></div>
+      <div class="modal-note" id="modalNote">A little memory, full of love.</div>
+    </div>
+  </div>
+</body>
+</html>
