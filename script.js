@@ -1,17 +1,10 @@
 
-/* =========================================
-   DHANYA SRI BIRTHDAY WEBSITE
-   Main BGM + Popup BGM + Video sound control
-========================================= */
-
-// MUSIC VOLUME SETTINGS
 const POPUP_BGM = "assets/music/popup-bgm.mp3";
 
-const MAIN_MUSIC_VOLUME = 0.65;    // Normal website BGM: 65%
-const DUCKED_MUSIC_VOLUME = 0.04;  // Photo popup: main BGM 4%
-const POPUP_MUSIC_VOLUME = 0.65;   // Popup BGM: 65%
+const MAIN_MUSIC_VOLUME = 0.65;    
+const DUCKED_MUSIC_VOLUME = 0.04;  
+const POPUP_MUSIC_VOLUME = 0.65;  
 
-// DOM ELEMENTS
 const familyGrid = document.getElementById("familyGrid");
 const galleryGrid = document.getElementById("galleryGrid");
 const modal = document.getElementById("modal");
@@ -24,13 +17,11 @@ const musicToggle = document.getElementById("musicToggle");
 let musicIsPlaying = false;
 let popupAudio = null;
 
-// If BGM was playing before a video started, resume it after the video pauses/ends.
+
 let resumeMusicAfterVideo = false;
 
 
-/* =========================================
-   FAMILY DATA
-========================================= */
+
 
 const families = [
 
@@ -104,10 +95,7 @@ const families = [
 ];
 
 
-/* =========================================
-   GALLERY PHOTOS
-   Replace these sample files with your photos.
-========================================= */
+
 
 const galleryPhotos = [
   {
@@ -173,9 +161,7 @@ const galleryPhotos = [
 ];
 
 
-/* =========================================
-   PAGE NAVIGATION
-========================================= */
+
 
 function go(pageNumber) {
   document.querySelectorAll(".page").forEach((page) => {
@@ -196,9 +182,7 @@ document.querySelectorAll("[data-go]").forEach((button) => {
 });
 
 
-/* =========================================
-   UNLOCK THE WEBSITE
-========================================= */
+
 
 const unlockForm = document.getElementById("unlockForm");
 const nameInput = document.getElementById("secretName");
@@ -225,9 +209,7 @@ unlockForm.addEventListener("submit", (event) => {
 });
 
 
-/* =========================================
-   MEDIA PLACEHOLDER
-========================================= */
+
 
 function showMediaPlaceholder(container, title, type, filename) {
   const placeholder = document.createElement("div");
@@ -252,11 +234,7 @@ function showMediaPlaceholder(container, title, type, filename) {
 }
 
 
-/* =========================================
-   BACKGROUND MUSIC HELPERS
-========================================= */
 
-// Stop the main BGM without forgetting the visitor's music preference.
 function pauseMainMusicForVideo() {
   if (!backgroundMusic) return;
 
@@ -267,7 +245,7 @@ function pauseMainMusicForVideo() {
   backgroundMusic.pause();
 }
 
-// Resume music only if it was playing before the video started.
+
 function resumeMainMusicAfterVideo() {
   if (!backgroundMusic || !resumeMusicAfterVideo) return;
 
@@ -275,7 +253,7 @@ function resumeMainMusicAfterVideo() {
 
   if (!musicIsPlaying) return;
 
-  // If the video was inside a popup, resume at a lower volume.
+ 
   backgroundMusic.volume = modal.classList.contains("open")
     ? DUCKED_MUSIC_VOLUME
     : MAIN_MUSIC_VOLUME;
@@ -294,7 +272,7 @@ function duckBackgroundMusic() {
 function restoreBackgroundMusic() {
   if (!backgroundMusic || !musicIsPlaying) return;
 
-  // Do not restart the music while a video is playing.
+
   const playingVideo = document.querySelector(
     ".page.active video:not(.family-preview-video), #modal video"
   );
@@ -313,13 +291,10 @@ function restoreBackgroundMusic() {
 }
 
 
-/* =========================================
-   VIDEO SOUND CONTROL
-   Video plays = background music stops.
-========================================= */
+
 
 function attachVideoSoundControl(video) {
-  // Do not apply this to the tiny muted family-card previews.
+
   if (video.classList.contains("family-preview-video")) return;
 
   video.volume = 1;
@@ -330,7 +305,7 @@ function attachVideoSoundControl(video) {
   });
 
   video.addEventListener("pause", () => {
-    // Wait until the video has actually stopped.
+ 
     if (video.ended) return;
     resumeMainMusicAfterVideo();
   });
@@ -340,15 +315,12 @@ function attachVideoSoundControl(video) {
   });
 }
 
-// Page 5 / Page 6 videos that already exist in index.html.
+
 document.querySelectorAll(".page video").forEach((video) => {
   attachVideoSoundControl(video);
 });
 
 
-/* =========================================
-   FAMILY CARDS
-========================================= */
 
 function renderFamilyCards() {
   familyGrid.replaceChildren();
@@ -430,9 +402,6 @@ function renderFamilyCards() {
 }
 
 
-/* =========================================
-   PHOTO GALLERY
-========================================= */
 
 function renderGallery() {
   galleryGrid.replaceChildren();
@@ -465,9 +434,6 @@ function renderGallery() {
 }
 
 
-/* =========================================
-   POPUP MUSIC
-========================================= */
 
 function stopPopupAudio() {
   if (popupAudio) {
@@ -518,9 +484,6 @@ function playPopupMusic(preferredTrack) {
 }
 
 
-/* =========================================
-   OPEN FAMILY MEMORY
-========================================= */
 
 function openFamilyMemory(family) {
   duckBackgroundMusic();
@@ -558,7 +521,7 @@ function openFamilyMemory(family) {
     showModal();
 
     video.play().catch(() => {
-      // If autoplay is blocked, the visitor can press Play.
+  
     });
   } else {
     const image = document.createElement("img");
@@ -578,15 +541,11 @@ function openFamilyMemory(family) {
     modalMedia.appendChild(image);
     showModal();
 
-    // Photo popup: quiet main BGM + louder popup BGM.
     playPopupMusic(family.song || POPUP_BGM);
   }
 }
 
 
-/* =========================================
-   OPEN GALLERY PHOTO
-========================================= */
 
 function openGalleryPhoto(source, caption) {
   duckBackgroundMusic();
@@ -607,9 +566,7 @@ function openGalleryPhoto(source, caption) {
 }
 
 
-/* =========================================
-   MODAL OPEN / CLOSE
-========================================= */
+
 
 function showModal() {
   modal.classList.add("open");
@@ -619,7 +576,7 @@ function showModal() {
 }
 
 function closeModal() {
-  // Remember if the visitor had music on before closing.
+  
   const videos = modalMedia.querySelectorAll("video, audio");
 
   videos.forEach((media) => {
@@ -631,7 +588,7 @@ function closeModal() {
   modal.classList.remove("open");
   modal.setAttribute("aria-hidden", "true");
 
-  // Restore main BGM if it was on before the video/popup.
+
   restoreBackgroundMusic();
 }
 
@@ -650,9 +607,7 @@ document.addEventListener("keydown", (event) => {
 });
 
 
-/* =========================================
-   MAIN WEBSITE MUSIC
-========================================= */
+
 
 function startBackgroundMusic() {
   backgroundMusic.volume = MAIN_MUSIC_VOLUME;
@@ -693,7 +648,7 @@ backgroundMusic.addEventListener("error", () => {
 
 musicToggle.addEventListener("click", async () => {
   if (musicIsPlaying) {
-    // Visitor chooses to turn music off.
+ 
     backgroundMusic.pause();
     musicIsPlaying = false;
     resumeMusicAfterVideo = false;
@@ -701,7 +656,7 @@ musicToggle.addEventListener("click", async () => {
     return;
   }
 
-  // Do not start BGM while a real video is playing.
+
   const playingVideo = document.querySelector(
     ".page.active video:not(.family-preview-video), #modal video"
   );
@@ -731,9 +686,7 @@ musicToggle.addEventListener("click", async () => {
 });
 
 
-/* =========================================
-   FLOATING HEARTS
-========================================= */
+
 
 function burstHearts(count = 5) {
   const symbols = ["♡", "♥", "✧", "💕"];
@@ -758,9 +711,7 @@ function burstHearts(count = 5) {
 }
 
 
-/* =========================================
-   INITIALIZE WEBSITE
-========================================= */
+
 
 renderFamilyCards();
 renderGallery();
