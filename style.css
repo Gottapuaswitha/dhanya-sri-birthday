@@ -15,7 +15,7 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   overflow-x: hidden;
-  /* Same baby background stays behind EVERY page, from start to finish. */
+  
   background-color: var(--cream);
   background-image:
     linear-gradient(rgba(255, 250, 246, 0.42), rgba(255, 242, 247, 0.48)),
@@ -139,11 +139,9 @@ h1, h2, h3, .serif { font-family: "Playfair Display", serif; }
 .section-head h2 { margin: 12px 0; font-size: clamp(2.4rem, 6vw, 4.3rem); }
 .section-head > p:last-child { max-width: 650px; margin: 0 auto; color: var(--muted); line-height: 1.8; }
 
-/* Page 2 uses the same site-wide baby background as every other page. */
 #page2 { overflow: hidden; background: transparent; }
 .page { background-color: transparent; }
 
-/* Birthday photo page */
 .birthday-intro {
   position: relative;
   max-width: 920px;
@@ -193,7 +191,6 @@ h1, h2, h3, .serif { font-family: "Playfair Display", serif; }
 .love-pills span { display: inline-block; padding: 9px 14px; border: 1px solid #f3d4df; border-radius: 99px; background: #ffffffc9; color: #8a5369; font-size: 0.84rem; }
 .birthday-intro .page-footer { margin-top: 25px; }
 
-/* Family cards */
 .family-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .family-card {
   overflow: hidden;
@@ -222,7 +219,7 @@ h1, h2, h3, .serif { font-family: "Playfair Display", serif; }
 .family-info h3 { margin: 7px 0; font-size: 1.35rem; }
 .family-info p { margin: 0; color: var(--muted); font-size: 0.87rem; line-height: 1.6; }
 
-/* Polaroid gallery */
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -250,7 +247,7 @@ h1, h2, h3, .serif { font-family: "Playfair Display", serif; }
 .gallery-item img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
 .gallery-item span { display: block; padding: 11px 4px 13px; background: white; color: #815665; text-align: center; font: italic 600 0.88rem "Playfair Display", serif; }
 
-/* Final-page letter and video */
+
 .letter-video-wrap { max-width: 900px; margin: 0 auto; }
 .last-letter-head { margin-bottom: 25px; }
 .wish-card {
@@ -289,7 +286,6 @@ h1, h2, h3, .serif { font-family: "Playfair Display", serif; }
 .page-footer { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 35px; }
 .tiny-note { margin-top: 25px; color: #a98b98; text-align: center; font-size: 0.8rem; }
 
-/* Popup for family memories and gallery photos */
 .backdrop {
   position: fixed;
   z-index: 100;
@@ -312,7 +308,7 @@ h1, h2, h3, .serif { font-family: "Playfair Display", serif; }
 .modal-note { padding: 16px 10px 5px; color: var(--muted); text-align: center; line-height: 1.7; }
 .modal-note audio { display: block; width: 100%; margin-top: 12px; }
 
-/* Floating hearts */
+
 .float-heart { position: fixed; z-index: 20; bottom: -40px; color: #ed83a2; opacity: 0; pointer-events: none; text-shadow: 0 4px 10px #b83d6515; animation: floatUp 7s linear forwards; }
 @keyframes appear { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes floatUp {
@@ -349,7 +345,6 @@ h1, h2, h3, .serif { font-family: "Playfair Display", serif; }
 
 
 
-/* ===== Responsive support for all screens ===== */
 
 * {
   box-sizing: border-box;
@@ -396,7 +391,7 @@ textarea {
   max-width: 100%;
 }
 
-/* Mobile phones */
+
 @media (max-width: 600px) {
   .page {
     padding: 16px 10px;
@@ -426,7 +421,6 @@ textarea {
   }
 }
 
-/* Tablets */
 @media (min-width: 601px) and (max-width: 1024px) {
   .gallery-grid,
   .family-grid {
@@ -434,7 +428,6 @@ textarea {
   }
 }
 
-/* Laptop and desktop */
 @media (min-width: 1025px) {
   .gallery-grid,
   .family-grid {
